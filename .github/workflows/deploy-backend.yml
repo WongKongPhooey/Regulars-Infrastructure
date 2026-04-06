@@ -2,7 +2,7 @@ name: Deploy Backend
 
 on:
   push:
-    branches: [main]
+    branches: [master]
     paths:
       - 'backend/**'
 
@@ -18,6 +18,6 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
             cd ~/backend
-            git pull origin main
+            git pull origin master
             npm install --production
             pm2 restart all
